@@ -43,6 +43,7 @@ const ContentTabs = (props) => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setShowMore(true);
     };
 
     return (
