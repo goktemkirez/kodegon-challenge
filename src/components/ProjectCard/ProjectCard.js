@@ -4,37 +4,48 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
-export default function ProjectCard() {
+const ProjectCard = (props) => {
+  const { title, imageUrl, writer, dates, content } = props;
+
   return (
-    <Card sx={{ 
-      maxWidth: '100%', 
+    <Card sx={{
+      maxWidth: '100%',
       width: '100%',
-      margin: '20px', 
+      margin: '20px',
       marginLeft: 0,
-      }}>
+    }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image="https://media.cntraveller.com/photos/611bf0b8f6bd8f17556db5e4/1:1/w_2000,h_2000,c_limit/gettyimages-1146431497.jpg"
+          height="200"
+          image={imageUrl}
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
+          <Typography textAlign={'left'} gutterBottom variant="h5" component="div">
+            {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography textAlign={'left'} sx={{ mb: 1.5 }}>
+            {writer}
+          </Typography>
+          <Typography textAlign={'left'} variant="body2" color="text.primary">
+            {content}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography textAlign={'left'} variant="body2" color="text.primary">
+          <CalendarTodayOutlinedIcon fontSize='small' /> {dates}
+        </Typography>
         <Button size="small" color="primary">
-          Share
+          <ArrowRightAltIcon color='error' fontSize='large' />
         </Button>
       </CardActions>
     </Card>
   );
 }
+
+export default ProjectCard;
