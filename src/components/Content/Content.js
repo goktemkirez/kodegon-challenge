@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Box, Grid, Container } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import { contentsJSON } from "../../assets/contentsJSON";
 
 // import { useStyles } from "./Content.style";
 
-import ProjectCard from "../ProjectCard/ProjectCard";
+import Title from "../Title";
+import ProjectCard from "../ProjectCard";
 
 const Content = (props) => {
     // const classes = useStyles();
@@ -24,8 +25,11 @@ const Content = (props) => {
     };
 
     return (
-        <Box>
-            <Container sx={{
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', }}
+            paddingLeft={{ xs: '20px', lg: '60px' }}
+            paddingRight={{ xs: '20px', lg: '60px' }}>
+            <Title title='Suspendisse Tempus' />
+            <Box sx={{
                 width: '100%',
                 padding: 0,
                 margin: 0,
@@ -33,12 +37,12 @@ const Content = (props) => {
                 <Grid container spacing={{ xs: 0, lg: '20px' }}
                     direction="row"
                     justifyContent="flex-start"
-                    padding={{ xs: '20px', lg: 0 }}
+                    padding={{ xs: 0, lg: 0 }}
                     paddingTop={0}
                     paddingBottom={0}
                     margin={0} >
                     {data.map((data) => (
-                        <Grid item xs={12} lg={3} key={data.id}>
+                        <Grid item xs={12} lg={3} key={data.id} padding={0} margin={0}>
                             <ProjectCard key={data.id}
                                 title={data?.title}
                                 imageUrl={data?.imageUrl}
@@ -48,7 +52,7 @@ const Content = (props) => {
                         </Grid>
                     ))}
                 </Grid>
-            </Container>
+            </Box>
         </Box>
     );
 };
