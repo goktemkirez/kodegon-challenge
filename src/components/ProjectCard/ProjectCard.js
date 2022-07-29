@@ -10,6 +10,8 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 const ProjectCard = (props) => {
   const { title, imageUrl, writer, dates, content } = props;
 
+  let croppedContent = content.substring(0, 250) + "...";
+
   return (
     <Card sx={{
       maxWidth: '100%',
@@ -32,7 +34,7 @@ const ProjectCard = (props) => {
             {writer}
           </Typography>
           <Typography textAlign={'left'} variant="body2" color="text.primary">
-            {content}
+            {croppedContent}
           </Typography>
         </CardContent>
       </CardActionArea>

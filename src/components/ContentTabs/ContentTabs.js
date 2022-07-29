@@ -44,15 +44,28 @@ const ContentTabs = (props) => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        setShowMore(true);
+        if (window.screen.availWidth < 600) {
+            setShowMore(true);
+        }
     };
 
     return (
         <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }} paddingLeft={{ xs: '20px', lg: '60px' }}>
-                <TabList variant="scrollable" onChange={handleChange}>
+                <TabList variant="scrollable" onChange={handleChange}
+                    TabIndicatorProps={{
+                        style: { background: "#DE0F17", }
+                    }}
+                    textColor={'inherit'} >
                     {tabsData.map((data) => (
-                        <Tab key={data.id} label={data?.title} value={data.id.toString()} />
+                        <Tab key={data.id} label={data?.title} value={data.id.toString()}
+                            sx={{
+                                color: '#7F7F7F',
+                                textTransform: 'capitalize',
+                                fontWeight: 500,
+                                fontSize: 16,
+                            }}
+                        />
                     ))}
                 </TabList>
             </Box>
