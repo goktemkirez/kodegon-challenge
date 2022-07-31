@@ -6,8 +6,10 @@ export const useStyles = makeStyles((theme) => ({
     width: 875,
     height: 500,
     ['@media (max-width:600px)']: { // eslint-disable-line no-useless-computed-key
-      width: '100%',
-      height: 200
+      height: 200,
+      width: '100vw',
+      position: 'relative',
+      marginLeft: '-25px'
     }
   }
 }));
