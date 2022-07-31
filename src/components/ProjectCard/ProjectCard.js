@@ -11,18 +11,13 @@ const ProjectCard = (props) => {
   const { title, imageUrl, writer, dates, content } = props;
   const isMobile = useMediaQuery('(max-width:600px)');
 
-  let croppedContent = content.substring(0, 250) + "...";
-
   return (
     <Card
       sx={{
         maxWidth: '100%',
         width: '100%',
-        margin: '20px',
-        marginLeft: 0,
-        marginTop: 0,
         borderRadius: '0px',
-        boxShadow: '0px 4px 25px rgba(0, 0, 0, 0.15);'
+        boxShadow: '0px 4px 25px rgba(0, 0, 0, 0.15);',
       }}>
       <Box sx={isMobile ? { display: 'flex' } : null}>
         <CardMedia
@@ -56,7 +51,7 @@ const ProjectCard = (props) => {
                   fontSize: '14px',
                   fontWeight: 400,
                 }}>
-                {croppedContent}
+                {content}
               </Typography>
             }
           </Box>

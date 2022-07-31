@@ -8,8 +8,8 @@ const Title = (props) => {
         <Box
             sx={{
                 textAlign: 'left',
-                marginTop: '40px',
-                marginBottom: '30px',
+                marginTop: '20px',
+                marginBottom: '27px'
             }}>
             <Typography variant='h2' sx={{
                 fontWeight: 'bold',
