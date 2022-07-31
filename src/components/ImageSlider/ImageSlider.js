@@ -1,6 +1,6 @@
 import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
-import { Box } from "@mui/material";
+import { Box} from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useStyles } from "./ImageSlider.style";
@@ -16,19 +16,14 @@ const ImageSlider = (props) => {
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return <Box className={classes.imageSliderDiv}>
-    {isMobile ? <SimpleImageSlider
+    <SimpleImageSlider
       width="100%"
-      height={450}
+      height={isMobile ? 450 : 600}
       images={images}
       showBullets={true}
       showNavs={true}
-    /> : <SimpleImageSlider
-      width="100%"
-      height={600}
-      images={images}
-      showBullets={true}
-      showNavs={true}
-    />}
+    />
+    
   </Box>;
 };
 
