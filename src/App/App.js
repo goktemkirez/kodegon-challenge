@@ -1,10 +1,15 @@
 import './App.css';
+import { ThemeProvider } from '@mui/material';
+import theme from '../theme';
+
 import Main from '../pages/Main/Main';
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <ThemeProvider theme={theme}>
+        <Main />
+      </ThemeProvider>
     </div>
   );
 }

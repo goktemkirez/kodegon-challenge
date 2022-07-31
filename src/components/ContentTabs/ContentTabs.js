@@ -56,12 +56,18 @@ const ContentTabs = (props) => {
                     TabIndicatorProps={{
                         style: { background: "#DE0F17", }
                     }}
-                    textColor={'inherit'} >
+                    textColor={'inherit'}
+                    sx={{
+                        "& button.Mui-selected": { color: '#000000', fontWeight: 'bold' }
+
+                    }} >
                     {tabsData.map((data) => (
                         <Tab key={data.id} label={data?.title} value={data.id.toString()}
                             sx={{
                                 color: '#7F7F7F',
                                 textTransform: 'capitalize',
+                                paddingLeft: 0,
+                                marginRight: '20px',
                                 fontWeight: 500,
                                 fontSize: 16,
                             }}
