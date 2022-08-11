@@ -4,8 +4,11 @@ export const useStyles = makeStyles((theme) => ({
   tabPanel: {
     textAlign: "left",
     fontFamily: "Roboto",
+    marginBottom: '52px',
     ['@media (min-width:600px)']: { // eslint-disable-line no-useless-computed-key
-      width: 875,
+      maxWidth: 875,
+      width: 'calc(100% - 45px)',
+      marginBottom: '64px',
     }
   },
   tabContent: {
