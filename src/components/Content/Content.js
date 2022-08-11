@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, ImageListItem } from "@mui/material";
+import { Masonry } from '@mui/lab'
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { contentsJSON } from "../../assets/contentsJSON";
@@ -29,10 +30,11 @@ const Content = (props) => {
                 paddingRight={{ xs: '20px', lg: '60px' }}>
                 <Title title='Suspendisse Tempus' />
             </Box>
-            <ImageList variant="masonry"
+            <Masonry 
                 sx={isMobile ? 
-                    { display: 'flex', flexDirection: 'column', paddingLeft: '20px', paddingRight: '20px' }
-                    : { padding: '60px', paddingTop:'7px' }} cols={4} gap={20}>
+                    { marginLeft: '20px', marginRight: '20px' }
+                    : { marginLeft: '60px', marginRight:'60px', marginTop:'7px' }} 
+                    columns={{ xs:1, sm:2, md:3, lg:4}} spacing={2}>
                 {data.map((item) => (
                     <ImageListItem key={item.id}>
                         <ProjectCard key={item.id}
@@ -43,7 +45,7 @@ const Content = (props) => {
                             content={item?.content} />
                     </ImageListItem>
                 ))}
-            </ImageList>
+            </Masonry>
         </Box>
     );
 };
